@@ -7,11 +7,11 @@ function CourseDescription({ course }) {
     return (
         <div>
             <Card
-                style={{ height: '300px' }}
+                style={{ height: '850px' }}
                 id="Card"
             //   onClick={handleNavigation(course)}
             >
-                <CardContent id="cardcontent">
+                <CardContent id="cardcontent_Learner">
                     <div className="card-hori d-flex">
                         <div>
                             <img
@@ -19,16 +19,16 @@ function CourseDescription({ course }) {
                                 src={course.thumbnailimage}
                                 alt="Course Thumbnail"
                                 height={150}
-                                width={100}
+                                width={150}
                             />
-                            <Typography variant="h5" component="h2">
+                            <Typography variant="h5" component="h2" >
                                 {course.enrolledCoursename}
                             </Typography>
                         </div>
 
-                        <div id="coursedetails">
+                        <div id="coursedetails_Learner">
 
-                            <Typography color="textSecondary"><h3> COURSE DESCRIPTION:</h3>
+                            <Typography color="textSecondary" className='description_content_Learner'><h3> COURSE DESCRIPTION:</h3>
                                 {course.enrolledcoursedescription}
                             </Typography>
                             <div className="level">

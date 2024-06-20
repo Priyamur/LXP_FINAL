@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import Stack from '@mui/material/Stack';
-import LearnerNavbar from '../LearnerComponent/LearnerNavbar';
+
 
 const CourseComponent = ({ enrolledCourses, loading, error, search }) => {
   const courses = useSelector((state) => state.fetchcourse.courses);
@@ -88,30 +88,33 @@ console.log("enroll course length",learnerCourses);
 
   return (
     <div>
-      <LearnerNavbar />
+     
       <div className="container-fluid" id="Servicemain">
         <div className="row" id="course-container">
           {filteredCourses.map((course, index) => (
-            <div className="col-sm-6 allcourse" key={index}>
-              <Card sx={{ display: 'flex', width: 480, marginLeft: 10, marginTop: 15, height: 200 ,marginRight:5,backgroundColor:"#e6eefb",color:"#27235C"}}>
+            <div className="col-sm-3 allcourse" key={index}>
+              <Card id='course-card_Learner'>
                 <CardMedia
+                  id='coure-inside_Learner'
                   component="img"
                   sx={{ width: 150, marginLeft: 0 }}
                   image={course.thumbnailimage}
                   alt={course.title}
                 />
-                <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                  <CardContent sx={{ flex: '1 0 auto', marginLeft: 10 }}>
-                    <Typography component="div" variant="h5">
+                <Box >
+                  <CardContent id='course-content_Learner' >
+                  <div id='course-typo_Learner'>
+                    <Typography component="div" variant="h5" id='course-name_Learner'>
                       Course: {course.title}
                     </Typography>
-                    <Typography variant="subtitle1" color="text.secondary" component="div">
+                    <Typography variant="subtitle1" color="text.secondary" component="div" id='course-name_Learner'>
                       Level: {course.level}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary" component="div">
+                    <Typography variant="body2" color="text.secondary" component="div" >
                       Category: {course.catagory}
                     </Typography>
                     <Button onClick={() => handleOpen(course)}>View More</Button>
+                    </div>
                   </CardContent>
                 </Box>
               </Card>

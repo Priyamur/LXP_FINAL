@@ -25,8 +25,10 @@
    
 }
 
-#cardcontent{
+#cardcontent_Learner{
    margin-left: 25px;
+   color: #27255c;
+  
 }
 
 .box
@@ -44,12 +46,15 @@
 }
 
 #Card{
-    margin-left: 280px;
-    margin-top: 20px;
-    width:60vw;
+    margin-left: 13px;
+    margin-top: 13px;
+    width:80vw;
    height: 60px;
     text-decoration: none;
     margin-right: 30px;
+    background-color: #e6eefb;
+   
+    
     
 
 /* 
@@ -97,9 +102,13 @@
      width:150px
  }
   
- #coursedetails{
+ #coursedetails_Learner{
      margin-left: 25px;
-     color:#e6eefb ;
+   
+     color: #27255c;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     font-size: 1rem;
+     
  }
   
  #Card_learner{
@@ -141,5 +150,13 @@
      font-family: 'Times New Roman', Times, serif;
      font-weight: bold;
      font-size: large;
+     color: #27255c;
     
+ }
+ .description_content_Learner
+ {
+    color: #27255c;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+
  }

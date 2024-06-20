@@ -36,20 +36,20 @@ function TopicScore() {
   };
 
   return (
-    <>
+    <div className="scorepage_Learner">
       <LearnerNavbar />
-      <div className="mt-5">
-        <div className="container">
-          <TableContainer component={Paper}>
+      <div className="mt-5 ">
+        <div className="container ">
+          <TableContainer component={Paper} >
             <Table aria-label="collapsible table">
               <TableHead>
                 <TableRow>
-                  <TableCell />
-                  <TableCell>Course Name</TableCell>
-                  <TableCell>Topic Name</TableCell>
-                  <TableCell>Score</TableCell>
-                  <TableCell>Scores Status</TableCell>
-                  <TableCell>Completion Status</TableCell>
+                  <TableCell sx={{color: "#27235C",fontWeight:"bold",fontSize:"1.5rem"}} />
+                  <TableCell sx={{color: "#27235C",fontWeight:"bold",fontSize:"1.5rem"}}>Course Name</TableCell>
+                  <TableCell sx={{color: "#27235C",fontWeight:"bold",fontSize:"1.5rem"}}>Topic Name</TableCell>
+                  <TableCell sx={{color: "#27235C",fontWeight:"bold",fontSize:"1.5rem"}}>Score</TableCell>
+                  <TableCell sx={{color: "#27235C",fontWeight:"bold",fontSize:"1.5rem"}}>Scores Status</TableCell>
+                  <TableCell sx={{color: "#27235C",fontWeight:"bold",fontSize:"1.5rem"}}>Completion Status</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -66,7 +66,7 @@ function TopicScore() {
           </TableContainer>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -97,18 +97,18 @@ function Row(props) {
   return (
     <>
       <TableRow>
-        <TableCell>
-          <IconButton
+        <TableCell sx={{color: "#27235C",fontWeight:"bold",fontSize:"1rem"}}>
+          {/* <IconButton
             aria-label="expand row"
             size="small"
             onClick={() => setOpen(!open)}
           >
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-          </IconButton>
+          </IconButton> */}
         </TableCell>
-        <TableCell>{row.courseName}</TableCell>
-        <TableCell>{row.topicName}</TableCell>
-        <TableCell>{row.score}</TableCell>
+        <TableCell sx={{color: "#27235C",fontWeight:"bold",fontSize:"1rem"}}>{row.courseName}</TableCell>
+        <TableCell sx={{color: "#27235C",fontWeight:"bold",fontSize:"1rem"}}>{row.topicName}</TableCell>
+        <TableCell sx={{color: "#27235C",fontWeight:"bold",fontSize:"1rem"}}>{row.score}</TableCell>
 
         <TableCell>
           <span style={{ color: Passorfail === "Fail" ? "red" : "green" }}>

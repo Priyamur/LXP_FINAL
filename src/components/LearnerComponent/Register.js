@@ -377,6 +377,8 @@ import Modal from 'react-modal';
 import { getCoursesRequest } from '../../actions/LearnerAction/LearnerGetCourseAction'
 import fetchEmailApi from '../../middleware/LearnerMiddleware/FetchEmailApi';
 import { Tooltip } from 'react-tooltip';
+import { fetchallCoursesRequest } from '../../actions/Admin/Adnimviewcourse';
+import { Alert } from '@mui/material';
 
 // const options = [
 //     { value: 'C++', label: 'C++' },
@@ -403,7 +405,9 @@ export default function Register() {
     const [errorMessage, setErrorMessage] = useState('');
     const [ageError, setAgeError] = useState(false);
     const minutes = Math.floor(timer / 60);
-    const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+    // const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+    const [altermessage, setAlertmessage] = useState(false);
+
     const learnerId = sessionStorage.getItem("UserSessionID")
     const seconds = timer % 60;
     // const [registrationStatus,setRegistrationStatus]= useState(null);
@@ -426,8 +430,8 @@ export default function Register() {
 
 
     // const pdf = useSelector((state) => state.fetchPdf.material);
-    const streamCourses = useSelector((state) => state.fetchcourse.courses)
-    console.log("scourse", streamCourses)
+    const streamCourses = useSelector((state) => state.allcourse.courses)
+    // console.log("scourse", streamCourses)
 
 
 
@@ -440,7 +444,7 @@ export default function Register() {
         value: course.title,
         label: course.title
     }));
-    console.log("options",options)
+    // console.log("options",options)
 
 
 
@@ -452,9 +456,9 @@ export default function Register() {
         setShowPasswordRules(false);
     };
 
-    const dismissAlert = () => {
-        setShowSuccessAlert(false);
-    };
+    // const dismissAlert = () => {
+    //     setShowSuccessAlert(false);
+    // };
 
     const dispatch = useDispatch();
 
@@ -618,8 +622,8 @@ export default function Register() {
 
     useEffect(() => {
         console.log("effect");
-        dispatch(getCoursesRequest(learnerId));
-    }, [learnerId]);
+        dispatch(fetchallCoursesRequest());
+    }, []);
 
 
     return (
@@ -748,10 +752,9 @@ export default function Register() {
 
                                     {/* <input type="submit" class="btnRegister" value="Register" onClick={handleSubmit} /> */}
                                 </div>
-                                {showSuccessAlert && (
-                                    <div className='alert alert-success all' role='alert'>Registered successfully!!
-                                    </div>
-                                )}
+                                {altermessage && <Alert variant="outlined" severity="success">
+                  Registered successful! Redirecting...
+                </Alert>}
 
                             </div>
 
