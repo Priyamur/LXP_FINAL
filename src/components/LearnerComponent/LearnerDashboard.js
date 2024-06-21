@@ -71,7 +71,7 @@ const LearnerDashboard = ({ enrolledCourses, loading, error, search }) => {
   const [TopicId] = useState("2df47ffa-3fc0-44c7-b869-c403f5542150");
   const [isLoading, setIsLoading] = useState(false);
   const viewcourse = useSelector((state) => state.enroll.course[0]);
-  console.log("viewcourse",viewcourse)
+  console.log("viewcourse", viewcourse)
 
   // const [LearnerId] = useState("6bdbab27-c637-48ff-850e-2cf9eb700a40");
 
@@ -254,7 +254,7 @@ const LearnerDashboard = ({ enrolledCourses, loading, error, search }) => {
         <div className='background-container_learner'>
           <div className="container-fluid ">
             <div className="row" id='allcont'>
-              <div className=" justify-content-center col-4">
+              <div className=" justify-content-center col-4 " style={{ height: '650px' }}>
                 <div id='profile-card'  >
                   {/* <div className="position-relative"> */}
                   {profilePhoto ? <img src={profilePhoto} className=" rounded-circle mt-2 mx-auto" alt="" style={{ width: '70px', height: '70px' }} id='card-img-top' /> : <img src={profile1} className=" rounded-circle mt-5 mx-auto" alt="" style={{ width: '70px', height: '70px' }} id='card-img-top' />}
@@ -399,75 +399,74 @@ const LearnerDashboard = ({ enrolledCourses, loading, error, search }) => {
                     </div>
                   </div> */}
                   <div>
-                  <h3 id='count-recommend' >Ongoing Courses</h3>
-                  {viewcourse && viewcourse.map((course, index) => (
-                  <div class="proj-progress-card shadow" style={{margin:50, width:400, height:100}}>
-                 
-                    <div  key={index} class="" style={{margin:10}}>
-                      <div>
-                      <img
-                      id="thumbnail"
-                      src={course.thumbnailimage}
-                      alt="Course Thumbnail"
-                      height={30}
-                      width={30}
-                    />
-                      </div>
-                      <div class="enroll-dashboard_learner" >
-                        <h6>  {course.enrolledCoursename}</h6>
-                        <h5 class="m-b-30 f-w-700">89%</h5>
-                       
-                        <div class="enroll_progress">
-                          <div class="enroll_progress-bar bg-c-green" style={{ width: 85 }}></div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                  </div>
-                   ))
-                  }
-                  </div>
-                 
+                    <h3 id='count-recommend_Learner' >Ongoing Courses</h3>
+                    {viewcourse && viewcourse.map((course, index) => (
+                      <div class="proj-progress-card shadow" style={{ margin: 50, width: 400, height: 120 }}>
 
-                </div>
+                        <div key={index} class="d-flex" style={{ margin: 10 }}>
+                          <div >
+                            <img
+                              id="thumbnail"
+                              src={course.thumbnailimage}
+                              alt="Course Thumbnail"
+                              style={{ width: '90px', height: '90px' }}
 
-                <div className=' ' id='recommend-container'>
-                  <div className=''>
-                    <h3 id='count-recommend' >Recommended Courses</h3>
-                  </div>
-                  <div className='d-flex'>
-                    {filteredCourses.map((course, index) => (
-                      <div id="rec-course" key={index} >
-                        <Card id='course-card' sx={{ backgroundColor: '#e6eefb' }} onClick={() => handleCardClick('enrolled')} >
-                          <CardMedia
-                            className='course-inside_Learner'
-                            component="img"
-                            sx={{ width: 150 }}
-                            image={course.thumbnailimage}
-                            alt={course.title}
-                          />
-                          <CardContent id='course-content' >
-                            <div id='course-typo'>
-                              <Typography component="div" variant="h5" id='course-name'>
-                                Course: {course.title}
-                              </Typography>
-                              <Typography variant="h6" component="div" id='course-name' >
-                                Level: {course.level}
-                              </Typography>
-                              <Typography variant="subtitle1" component="div" id='course-name'>
-                                Category: {course.catagory}
-                              </Typography>
-                              {/* <Button onClick={() => handleOpen(course)}>View More</Button> */}
+                            />
+                          </div>
+                          <div class="enroll-dashboard_learner" style={{ display: 'block', marginLeft: '30px' }}>
+                            <h6>  {course.enrolledCoursename}</h6>
+                            <h5 class="m-b-30 f-w-700">89%</h5>
+
+                            <div class="enroll_progress">
+                              <div class="enroll_progress-bar bg-c-green" style={{ width: 85 }}></div>
                             </div>
-                          </CardContent>
-
-                        </Card>
+                          </div>
+                        </div>
 
                       </div>
-                    ))}
+                    ))
+                    }
                   </div>
-                </div>
 
+
+                </div>
+              </div>
+            </div>
+
+            <div className='row' id='recommend-container' >
+              <div className=''>
+                <h3 id='    '  style={{color:'#27235C'}}>Recommended Courses</h3>
+              </div>
+              <div className='d-flex'>
+                {filteredCourses.map((course, index) => (
+                  <div id="rec-course" key={index} >
+                    <Card id='course-card' onClick={() => handleCardClick('enrolled')} >
+                      <CardMedia
+                        className='course-inside_Learner'
+                        component="img"
+                        sx={{ width: 150 }}
+                        image={course.thumbnailimage}
+                        alt={course.title}
+                      />
+                      <CardContent id='course-content' >
+                        <div id='course-typo'>
+                          <Typography component="div" variant="h5" id='course-name'>
+                            Course: {course.title}
+                          </Typography>
+                          <Typography variant="h6" component="div" id='course-name' >
+                            Level: {course.level}
+                          </Typography>
+                          <Typography variant="subtitle1" component="div" id='course-name'>
+                            Category: {course.catagory}
+                          </Typography>
+                          {/* <Button onClick={() => handleOpen(course)}>View More</Button> */}
+                        </div>
+                      </CardContent>
+
+                    </Card>
+
+                  </div>
+                ))}
               </div>
             </div>
 

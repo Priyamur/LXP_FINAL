@@ -93,7 +93,7 @@ console.log("enroll course length",learnerCourses);
         <div className="row" id="course-container">
           {filteredCourses.map((course, index) => (
             <div className="col-sm-3 allcourse" key={index}>
-              <Card id='course-card_Learner'>
+              <Card id='course-card_Learner' sx={{marginLeft:'20px'}}>
                 <CardMedia
                   id='coure-inside_Learner'
                   component="img"
