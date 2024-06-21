@@ -20,13 +20,13 @@ function LearnerScoreProgressBarGraph() {
     // Get all unique courses
     const courses = [...new Set(scoreProgressSelector.map(item => item.courseName))];
 
-    const topicColors = ['#e6eefb', '#27235C']
+    const topicColors = ['#033861', '#27235C']
 
     // Calculate chart width based on the number of courses and topics
     const chartWidth = 100 * courses.length * topics.length;
 
     return (
-        <div style={{ width: `350px`, height: '350px' }}>
+        <div style={{ width: `400px`, height: '400px' ,margin:0, backgroundColor:'#e6eefb',marginTop:'50px'}}>
             <VictoryChart domainPadding={55} padding={{ top: 20, bottom: 60, left: 100, right: 80 }}>
                 <VictoryAxis tickValues={courses} tickFormat={courses} />
                 <VictoryAxis dependentAxis />
